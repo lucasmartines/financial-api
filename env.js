@@ -1,3 +1,7 @@
+const env = require('dotenv').config({
+   path: process.env.NODE_ENV === "test" ? ".env.testing" : ".env"
+})
+
 let{DB_HOST,DB_PORT,BACKEND_PORT,BACKEND_HOST , DB_NAME} = process.env
 
 module.exports = {
@@ -7,6 +11,6 @@ module.exports = {
     /** this is port just for webpack-server */
 
     BACKEND_HOST: BACKEND_HOST ? BACKEND_HOST: 'localhost',
-    BACKEND_PORT: BACKEND_PORT ? BACKEND_PORT : '9000'    
+    BACKEND_PORT: BACKEND_PORT ? BACKEND_PORT : '9000'
 
 }

@@ -60,4 +60,29 @@ module.exports = (app) => {
     }
 
   });
+
+  app.get('/stock/:stock/profit',toBR,async( req,res ) => {
+    const financial = require("../services/financial")();
+    const axios = require("axios");
+
+    try{
+        let allDaysSeries = await financial.getStockDaySeries(
+            req.params.stock,
+            axios,
+            req.query.days || 260
+          );
+
+
+        let average = financial.calculateProfit( allDaysSeries[0] , allDaysSeries[ allDaysSeries.length - 1 ]  )
+
+        res.json({
+          profit:average
+        });
+
+    }
+    catch( e ) {
+        res.status(404).json( e )
+    }
+
+  })
 };

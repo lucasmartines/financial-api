@@ -1,7 +1,7 @@
 function StockService(request) {
   this.request = request;
 
-  const apiKey = "5T9PSLWSUIE8115V";
+  const apiKey = process.env.API_DATA;
 
   const mode = require('./fetchStockModeTypes')
   /***
@@ -20,9 +20,12 @@ function StockService(request) {
       throw "Error the _mode param is is invalid you should pass compact or full"
     }
 
+
+
     try
     {
-       const connectionString = `http://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${stockName}&apikey=${apiKey}&outputsize=${_mode}`
+
+      const connectionString = `http://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${stockName}&apikey=${apiKey}&outputsize=${_mode}`
       let  res  = await this.request.get( connectionString );
 
       if(res.data['Error Message']){

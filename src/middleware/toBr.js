@@ -6,7 +6,7 @@ module.exports = ( req,res,next) => {
   if( isBR ){
     req.params.stock = toBR( req.params.stock ,true)
   }
-  console.log("___TO_BR_MIDDLEWARE___ENABLED____")
+ 
 
   next()
 }

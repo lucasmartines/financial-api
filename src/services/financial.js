@@ -56,11 +56,28 @@ function Financial() {
 
     return daysResponse;
   };
+  /**
+
+  @param {Number} start
+  @param {Number} end
+
+  * It receive two values the start value will be compared with
+  the end value and then it will calculate
+  example i started at 10 bucks then i envolved to 20 bucks
+  so now i have 100% of profit
+
+  */
+  function calculateProfit( start = 1 ,end = 1 ){
+
+    if( !start ) throw "Error Start should be a valid number"
+    return ( ( end/start ) -1 ) * 100
+  }
 
   /** return the Financial to public */
   return {
     calculateMedia,
     getStockDaySeries,
+    calculateProfit
   };
 }
 

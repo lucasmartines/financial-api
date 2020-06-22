@@ -20,7 +20,6 @@ describe('financial test getStockDaySeries' , () => {
 
   it('should return a list of stock numbers in array', async () => {
 
-
     let data = await financial.getStockDaySeries('fakeStock',
       axios ,
       20,
@@ -51,6 +50,7 @@ describe('financial test getStockDaySeries' , () => {
 
   })
   it('should the lasts values of array be 0  if the data fron api is not enogh to fill then all', async()=>{
+
     let data = await financial.getStockDaySeries('fakeStock',
       axios ,
       100,
@@ -63,8 +63,6 @@ describe('financial test getStockDaySeries' , () => {
 
   it('should return a array of zero when api is empty',  async () =>
   {
-
-
     let data = await financial.getStockDaySeries('fakeStock',
       axios ,
       100,
@@ -76,8 +74,6 @@ describe('financial test getStockDaySeries' , () => {
 
   it('should call get stock days',  async () =>
   {
-
-
     let data = await financial.getStockDaySeries('fakeStock',
       axios ,
       20,
