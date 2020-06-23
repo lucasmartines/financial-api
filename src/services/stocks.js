@@ -26,14 +26,15 @@ function StockService(request) {
     {
 
       const connectionString = `http://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${stockName}&apikey=${apiKey}&outputsize=${_mode}`
+
+    //  console.log(connectionString)
       let  res  = await this.request.get( connectionString );
 
       if(res.data['Error Message']){
         throw res.data['Error Message']
         // return
       }
-
-      let normalizedData = Object.keys(res.data["Time Series (Daily)"]).map((key) =>
+       let normalizedData = Object.keys(res.data["Time Series (Daily)"]).map((key) =>
         parseFloat(res.data["Time Series (Daily)"][key]["5. adjusted close"])
       );
       return normalizedData;

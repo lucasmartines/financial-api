@@ -8,7 +8,8 @@
     "serve": "nodemon app.js",
     "run": "node app.js",
     "test": "jest --coverage ",
-    "test.dev": "jest --watchAll"
+    "test.dev": "jest --watchAll",
+    "start":"pm2 start ./index.js --name financial-api"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "jest": "^26.0.1",
+    "nock": "^12.0.3",
     "supertest": "^4.0.2"
   }
 }
