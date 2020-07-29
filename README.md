@@ -1,5 +1,5 @@
 # Estudo de api com testes unitarios e Mercado financeiro
-[MyAPI](http://3.15.194.42:7000/stock/T/average)
+[MyAPI](http://3.23.17.53:7000/stock/T/average)
 
 
 ## /stock/[sua-stock-ex:ITSA3.SA]
